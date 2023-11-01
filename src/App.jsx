@@ -7,10 +7,8 @@ function App() {
 
   return (
     <div> 
-      <Hello /> 
-      <Hello /> 
       <Message />
-      <Welcome name={<strong>Suleyman </strong>} />
+      <Welcome name={<strong>John!</strong>} />
     </div>
   );
 }
