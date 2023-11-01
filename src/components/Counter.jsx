@@ -1,20 +1,24 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Counter(props) {
     const [count, setCount] = useState(props.initial);
 
+    useEffect(()=> {
+        console.log(count);
+    })
+
     function CounterDisplay(props) {
         return(
-            <h2>
+            <p>
                 {props.count}
-            </h2>
+            </p>
         )
     }
 
 
     return (
         <>
-            <h2><CounterDisplay count={count} /></h2>
+            <h1><CounterDisplay count={count} /></h1>
             <button onClick={()=> setCount(count+ props.incrementAmount)}>Increment</button>
             <button onClick={()=> setCount(count- props.decrementAmount)}>Decrement</button>
             <button onClick={()=> setCount(props.initial)}>Reset</button>
