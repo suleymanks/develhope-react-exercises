@@ -5,9 +5,15 @@ import { useState } from "react";
 
 function App() {
 
+  const amount = 2;
+
   return (
     <div className='App'> 
-        <Counter initial={5} incrementAmount={2} />
+        <Counter 
+        initial={5} 
+        incrementAmount={amount}
+        decrementAmount={amount}
+         />
     </div>
   );
 }
