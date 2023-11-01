@@ -6,12 +6,10 @@ import Welcome from './components/Welcome';
 function App() {
 
   return (
-    <div> 
-      <Hello /> 
-      <Hello /> 
+    <h1> 
       <Message />
-      <Welcome name={<strong>Suleyman </strong>} />
-    </div>
+      <Welcome name={<strong>Suleyman!</strong>} />
+    </h1>
   );
 }
 
