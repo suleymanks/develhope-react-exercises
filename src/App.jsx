@@ -7,7 +7,7 @@ import AlertClock from './components/AlertClock';
 function App() {
 
 
-
+  //27-EVENTS EXERCISE
   return (
     <h1> 
       <Message />
