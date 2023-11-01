@@ -20,9 +20,9 @@ function App() {
       <Message />
       <Welcome name={<strong>Suleyman!</strong>} />
       <AlertClock date={date} alert={alert} />
-      {/* <h1>
-        <Counter></Counter>
-      </h1> */}
+      <h1>
+        <Counter initial={5} incrementAmount={2} />
+      </h1>
     </div>
   );
 }
