@@ -1,17 +1,11 @@
-import { useState } from "react";
 
-export default function AlertClock() {
-    const [date, setDate] = useState("");
+export default function AlertClock(props) {
 
-    function alert(){
-        const currentDate = new Date;
-        setDate(currentDate);
-    }
 
     return (
         <>
-            <button onClick={alert}>Click to see the time</button>
-            <p>{date.toString()}</p>
+            <button onClick={props.alert}>Click to see the time</button>
+            <p>{props.date}</p>
         </>
     )
 }
