@@ -1,10 +1,11 @@
 import YourAgeIs from "./YourAgeIs"
 
 const Welcome = (props) => {
+    const age = 19;
     return (
         <p>
             Welcome {props.name}
-            <YourAgeIs age={25} />
+            {age > 18 && <YourAgeIs age={age} />}
         </p>
     )
 }
