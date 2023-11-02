@@ -1,6 +1,6 @@
 import './App.css'
 import Counter from './components/Counter';
-import { useState } from "react";
+import Clock from './components/Clock';
 
 
 function App() {
@@ -9,11 +9,7 @@ function App() {
 
   return (
     <div className='App'> 
-        <Counter 
-        initial={5} 
-        incrementAmount={amount}
-        decrementAmount={amount}
-         />
+        <Clock />
     </div>
   );
 }
