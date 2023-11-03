@@ -1,7 +1,7 @@
 import './App.css'
 import Counter from './components/Counter';
 import Clock from './components/Clock';
-
+import MouseClicker from './components/MouseClicker';
 
 function App() {
 
@@ -10,6 +10,7 @@ function App() {
   return (
     <div className='App'> 
         <Clock />
+        <MouseClicker name="one" />
     </div>
   );
 }
