@@ -9,8 +9,7 @@ function App() {
 
   return (
     <div className='App'> 
-        <Clock />
-        <MouseClicker name="one" />
+        <MouseClicker />
     </div>
   );
 }
