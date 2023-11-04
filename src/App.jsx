@@ -2,6 +2,7 @@ import './App.css'
 import Counter from './components/Counter';
 import Clock from './components/Clock';
 import MouseClicker from './components/MouseClicker';
+import InteractiveWelcome from './components/InteractiveWelcome';
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className='App'> 
-        <MouseClicker />
+        <InteractiveWelcome />
     </div>
   );
 }
