@@ -10,6 +10,12 @@ export default function Login(props) {
         console.log(username, password, checkbox)
     }
 
+    function onReset() {
+        setUsername("")
+        setPassword("")
+        setCheckbox(false)
+      }
+
     return (
         <form onSubmit={handleSubmit}>
             <label >Username: </label>
@@ -31,6 +37,7 @@ export default function Login(props) {
                 onChange={(e)=> setCheckbox(!checkbox)}
                 name="remember" />
             <button disabled={!username || !password} onClick={props.onLogin}>Login</button>
+            <button onClick={onReset}>Reset</button>
         </form>
     )
 }

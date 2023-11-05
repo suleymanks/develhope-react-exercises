@@ -5,8 +5,7 @@ function App() {
 
   function onLogin() {
     console.log("onlogin runs")
-}
-
+  }
 
   return (
     <div className='App'> 
