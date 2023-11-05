@@ -3,11 +3,14 @@ import Login from './components/Login';
 
 function App() {
 
-  const amount = 2;
+  function onLogin() {
+    console.log("onlogin runs")
+}
+
 
   return (
     <div className='App'> 
-        <Login />
+        <Login onLogin={onLogin}/>
     </div>
   );
 }

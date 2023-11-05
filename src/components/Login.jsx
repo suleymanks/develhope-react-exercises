@@ -1,21 +1,24 @@
 import { useState } from "react";
 
-export default function Login() {
+export default function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [checkbox, setCheckbox] = useState(true);
+    const [checkbox, setCheckbox] = useState(false);
 
-    console.log(username, password, checkbox)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(username, password, checkbox)
+    }
 
     return (
-        <form>
-            <label htmlFor="name">Username: </label>
+        <form onSubmit={handleSubmit}>
+            <label >Username: </label>
             <input 
                 type="text" 
                 value={username} 
                 onChange={(e) => {setUsername(e.target.value)}}
                 name="name" />
-            <label htmlFor="pass">Password: </label>
+            <label >Password: </label>
             <input 
                 type="text" 
                 value={password} 
@@ -27,7 +30,7 @@ export default function Login() {
                 value={checkbox} 
                 onChange={(e)=> setCheckbox(!checkbox)}
                 name="remember" />
-            <button>Login</button>
+            <button disabled={!username || !password} onClick={props.onLogin}>Login</button>
         </form>
     )
 }
