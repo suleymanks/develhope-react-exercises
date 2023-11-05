@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+form {
+  150px
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 150px;
+  border-radius: 5px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
