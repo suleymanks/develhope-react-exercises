@@ -2,16 +2,19 @@ import { useRef } from "react";
 
 export default function UncontrolledLogin(props) {
 
-    const usernameRef = useRef();
-    const passwordRef = useRef();
-    const checkboxRef = useRef();
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(usernameRef.current.value, passwordRef.current.value);
-    }
+        const form = e.target;
+        console.log(form)
+        const formData = new FormData(form)
+        console.log(FormData)
 
-     // We can acces password and username values with using current.value same as vanilla javascript
+        const username = formData.get("username")
+        const password = formData.get("password")
+        const checkbox = formData.get("checkbox")
+
+        console.log(username,password,checkbox)
+    }
 
 
     function onReset() {
@@ -25,19 +28,16 @@ export default function UncontrolledLogin(props) {
             <label>Username: </label>
             <input 
                 type="text" 
-                ref={usernameRef}
                 name="username" />
             <label >Password: </label>
             <input 
                 type="text" 
-                ref={passwordRef}
                 name="password" />
             Remember me ?
             <input 
                 type="checkbox" 
-                ref={checkboxRef}
                 name="checkbox" />
-            <button disabled={!usernameRef.current || !passwordRef.current} onClick={props.onLogin}>Login</button>
+            <button onClick={props.onLogin}>Login</button>
             <button onClick={onReset}>Reset</button>
         </form>
     )
