@@ -8,8 +8,11 @@ export default function UncontrolledLogin(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(usernameRef.current.value, passwordRef.current.value, checkboxRef.current.checked);
+        console.log(usernameRef.current.value, passwordRef.current.value);
     }
+
+     // We can acces password and username values with using current.value same as vanilla javascript
+
 
     function onReset() {
         usernameRef.current.value = "";
