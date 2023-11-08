@@ -1,16 +1,12 @@
 import './App.css'
-import Login from './components/Login';
-import UncontrolledLogin from './components/UncontrolledLogin';
+import FocusableInput from './components/FocusableInput';
 
 function App() {
 
-  function onLogin() {
-    console.log("onlogin runs")
-  }
 
   return (
     <div className='App'> 
-        <UncontrolledLogin onLogin={onLogin}/>
+      <FocusableInput />
     </div>
   );
 }
