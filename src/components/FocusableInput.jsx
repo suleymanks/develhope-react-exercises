@@ -1,17 +1,20 @@
 import {useRef,useEffect} from "react"
 
 export default function FocusableInput() {
-    const inputRef = useRef("")
-
+    const isMounted = useRef(false)
+    console.log(isMounted.current)
     useEffect(()=>{
-        if(inputRef.current){
-            inputRef.current.focus()
+        if(!isMounted.current){
+           console.log("The component is mounted very first time")
+           isMounted.current = true;
+           console.log(isMounted.current)
         }
-    })
+
+    },[])
 
     return(
         <>
-            <input type="text" ref={inputRef}/>
+            <p>Hello React and Refs hook!</p>
         </>
     )
 }
