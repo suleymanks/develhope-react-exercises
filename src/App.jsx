@@ -1,5 +1,6 @@
 import './App.css'
 import Login from './components/Login';
+import UncontrolledLogin from './components/UncontrolledLogin';
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className='App'> 
-        <Login onLogin={onLogin}/>
+        <UncontrolledLogin onLogin={onLogin}/>
     </div>
   );
 }

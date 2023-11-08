@@ -12,16 +12,6 @@ export default function Login(props) {
         console.log(formData.username, formData.password, formData.checkbox)
     }
 
-    function handleChange(e) {
-        const {name,value,type,checked} = e.target
-        setFormData((formData) => {
-            return {
-                ...formData,
-                [name] : type == 'checkbox' ? checked : value,
-            }
-        })
-    }
-
     function onReset() {
         setFormData({
             username:"",
@@ -36,19 +26,19 @@ export default function Login(props) {
             <input 
                 type="text" 
                 value={formData.username} 
-                onChange={handleChange}
+                onChange={(e) => setFormData({...formData, username:e.target.value})}
                 name="username" />
             <label >Password: </label>
             <input 
                 type="text" 
                 value={formData.password} 
-                onChange={handleChange}
+                onChange={(e) => setFormData({...formData, password:e.target.value})}
                 name="password" />
             Remember me ?
             <input 
                 type="checkbox" 
                 checked={formData.checkbox} 
-                onChange={handleChange}
+                onChange={(e) => setFormData({...formData, checkbox: e.target.checked})}
                 name="checkbox" />
             <button disabled={!formData.username || !formData.password} onClick={props.onLogin}>Login</button>
             <button onClick={onReset}>Reset</button>
