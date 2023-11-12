@@ -1,14 +1,13 @@
 import './App.css'
-import FocusableInput from './components/FocusableInput';
-import Counter from './components/Counter';
+import Colors from './components/Colors';
 
 function App() {
 
+  const colorsArray = ["red", "pink", "yellow", "blue"]
 
   return (
     <div className='App'> 
-      <FocusableInput />
-      <Counter initial={0} incrementAmount={1} decrementAmount={1}/>
+      <Colors items={colorsArray}/>
     </div>
   );
 }
