@@ -3,7 +3,25 @@ import Colors from './components/Colors';
 
 function App() {
 
-  const colorsArray = ["red", "pink", "yellow", "blue"]
+  const colorsArray = [
+    {
+      name: "red",
+      id: 0,
+    },
+    {
+      name: "pink",
+      id: 1,
+    },
+    {
+      name: "yellow",
+      id: 2,
+    },
+    {
+      name: "blue",
+      id: 3,
+    },
+
+    ]
 
   return (
     <div className='App'> 
