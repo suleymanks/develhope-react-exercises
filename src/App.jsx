@@ -1,5 +1,6 @@
 import './App.css'
 import Colors from './components/Colors';
+import TodoList from './components/TodoList';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div className='App'> 
-      <Colors items={colorsArray}/>
+      <TodoList />
     </div>
   );
 }
