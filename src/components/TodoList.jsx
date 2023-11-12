@@ -10,6 +10,12 @@ export default function TodoList() {
         }
         setInputValue("");
     }
+    function removeItem(index) {
+        setItems((prevItems) => {
+            const newItems = prevItems.filter((_ , i) => i !== index )
+            return newItems;
+        })
+    }
 
     return (
         <div>
@@ -27,6 +33,7 @@ export default function TodoList() {
                 {items.map((element, index) =>(
                     <li key={index}>
                         {element}
+                        <button onClick={() => removeItem(index)}>x</button>
                     </li>
                 ))}
             </ul>
