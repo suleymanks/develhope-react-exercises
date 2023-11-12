@@ -7,7 +7,7 @@ export default function UncontrolledLogin(props) {
         const form = e.target;
         console.log(form)
         const formData = new FormData(form)
-        console.log(FormData)
+        console.log(formData)
 
         const username = formData.get("username")
         const password = formData.get("password")
@@ -15,6 +15,9 @@ export default function UncontrolledLogin(props) {
 
         console.log(username,password,checkbox)
     }
+
+    // We can acces values of the form here. Using FormData API is a standart way to handle form data. But there are various type to reach and use form data.
+    // So yes there are non-standarts APIs.
 
 
     function onReset() {
