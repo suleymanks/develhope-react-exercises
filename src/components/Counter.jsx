@@ -1,11 +1,16 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 export default function Counter(props) {
-    const [count, setCount] = useState(props.initial);
+    const count = useRef("initialValue")
+    const [currCount, setCurrCount] = useState(props.initial);
 
     useEffect(()=> {
-        console.log(count);
-    },[count])
+        const direction = currCount > count.current ? "up" : "down";
+        if(direction !== count.current) {
+            console.log(direction);
+            count.current=currCount;
+        }
+    },[currCount])
 
     function CounterDisplay(props) {
         return(
@@ -18,10 +23,10 @@ export default function Counter(props) {
 
     return (
         <>
-            <h1><CounterDisplay count={count} /></h1>
-            <button onClick={()=> setCount(count+ props.incrementAmount)}>Increment</button>
-            <button onClick={()=> setCount(count- props.decrementAmount)}>Decrement</button>
-            <button onClick={()=> setCount(props.initial)}>Reset</button>
+            <h1><CounterDisplay count={currCount} /></h1>
+            <button onClick={()=> setCurrCount(currCount+ props.incrementAmount)}>Increment</button>
+            <button onClick={()=> setCurrCount(currCount- props.decrementAmount)}>Decrement</button>
+            <button onClick={()=> setCurrCount(props.initial)}>Reset</button>
         </>
     )
 }
