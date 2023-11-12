@@ -6,6 +6,7 @@ export default function TodoList() {
 
     function addTodos() {
         setItems([...items, inputValue])
+        setInputValue("");
     }
 
     return (
