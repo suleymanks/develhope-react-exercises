@@ -5,7 +5,9 @@ export default function TodoList() {
     const [inputValue, setInputValue] = useState("")
 
     function addTodos() {
+        if(inputValue !== "") {
         setItems([...items, inputValue])
+        }
         setInputValue("");
     }
 
@@ -19,7 +21,8 @@ export default function TodoList() {
             required
             />
             <br />
-            <button onClick={addTodos}>Button</button>
+            <button onClick={addTodos}>Add</button>
+            <button onClick={()=> setItems([])}>Reset</button>
             <ul>
                 {items.map((element, index) =>(
                     <li key={index}>
