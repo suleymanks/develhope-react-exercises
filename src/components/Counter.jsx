@@ -1,35 +1,40 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Counter(props) {
-  const count = useRef("initialValue");
-  const [currentCount, setCurrentCount] = useState(props.initial);
+  const [count, setCount] = useState(props.initial);
+  const directionRef = useRef(null);
+  
 
   useEffect(() => {
-    const direction = currentCount > count.current ? "up" : "down";
-    if (direction !== count.current) {
-      console.log(`Count : ${direction}`);
-      count.current = currentCount;
+    // Check if the count increased, decreased, or remained the same
+    if (count > directionRef.current) {
+      directionRef.current = "up";
+    } else if (count < directionRef.current) {
+      directionRef.current = "down";
     }
-  }, [currentCount]);
+
+    // Print the value of the ref only when it's different from the previous value
+    if (directionRef.current !== null) {
+      console.log(directionRef.current);
+    }
+  }, [count]);
 
   function CounterDisplay(props) {
-    return (
-      <p>
-        {props.count}
-      </p>
-    );
+    return <p>{props.count}</p>;
   }
 
   return (
     <>
-      <h1><CounterDisplay count={currentCount} /></h1>
-      <button onClick={() => setCurrentCount(currentCount + props.incrementAmount)}>
+      <h1>
+        <CounterDisplay count={count} />
+      </h1>
+      <button onClick={() => setCount(count + props.incrementAmount)}>
         Increment
       </button>
-      <button onClick={() => setCurrentCount(currentCount - props.decrementAmount)}>
+      <button onClick={() => setCount(count - props.decrementAmount)}>
         Decrement
       </button>
-      <button onClick={() => setCurrentCount(props.initial)}>Reset</button>
+      <button onClick={() => setCount(props.initial)}>Reset</button>
     </>
   );
 }
