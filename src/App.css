@@ -12,10 +12,14 @@ div {
   align-items: center;
 }
 
-li button {
-  padding: -33px;
-
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+
 input {
   display: flex;
   justify-content: center;
