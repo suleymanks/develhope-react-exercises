@@ -1,6 +1,5 @@
 import './App.css'
-import Colors from './components/Colors';
-import TodoList from './components/TodoList';
+import Welcome from './components/Welcome';
 
 function App() {
 
@@ -26,7 +25,7 @@ function App() {
 
   return (
     <div className='App'> 
-      <TodoList />
+      <Welcome />
     </div>
   );
 }
