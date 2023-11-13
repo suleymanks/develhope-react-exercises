@@ -1,4 +1,3 @@
-
 export default function Colors(props) {
 
     function Color() {
@@ -9,6 +8,7 @@ export default function Colors(props) {
 
     return (
         <ul>
+            <h2>Colors</h2>
             <Color />
         </ul>
     )
