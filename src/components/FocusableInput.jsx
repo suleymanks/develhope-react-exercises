@@ -1,4 +1,5 @@
 import {useRef,useEffect} from "react"
+import { Button } from 'react-bootstrap';
 
 export default function FocusableInput() {
     const isMounted = useRef(false)
@@ -15,6 +16,7 @@ export default function FocusableInput() {
     return(
         <>
             <p>Hello React and Refs hook!</p>
+            <Button variant="primary">Submit</Button>
         </>
     )
 }

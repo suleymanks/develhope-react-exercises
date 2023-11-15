@@ -1,5 +1,4 @@
 import './App.css'
-import './index.css'
 import Welcome from './components/Welcome';
 import Counter from './components/Counter';
 import FocusableInput from './components/FocusableInput';
@@ -8,6 +7,8 @@ import Login from './components/Login';
 import Clock from './components/Clock';
 import TodoList from './components/TodoList';
 import Colors from './components/Colors';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
