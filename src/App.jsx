@@ -6,10 +6,12 @@ import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
 
+  //If we delete LanguageProvider we lost all access LanguageContext so useContext too. It doesnt work without it.
+
   return (
-    <LanguageProvider>
+    <div>
       <Clock/>
-    </LanguageProvider>
+    </div>
   );
 }
 
