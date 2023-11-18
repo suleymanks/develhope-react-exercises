@@ -1,11 +1,10 @@
-import { useEffect, useState, createContext } from "react"
+import { useEffect, useState, useContext } from "react"
 import './Clock.css'
+import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function Clock() {
     const [time, setTime] = useState(new Date());
-    const [language, setLanguage] = useState('en')
-    const LanguageContext = createContext();
-
+    const { language, setLanguage, handleLanguageChange } = useContext(LanguageContext);
 
     useEffect(()=> {    
 
@@ -16,18 +15,17 @@ export default function Clock() {
     },[])
 
     return(
-        <LanguageContext.Provider value={language}>
-            <select>
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="it">Italian</option>
-                <option value="de">German</option>
-            </select>
             <div className="clock">
+                <select onChange={handleLanguageChange}>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="tr">Turkish</option>
+                    <option value="it">Italian</option>
+                </select>
                 <h1 className="time">Clock</h1>
                 {time.toLocaleTimeString()}
+                <p>Language: {language}</p>
                 <hr />
             </div>
-        </LanguageContext.Provider>
     )
 }
