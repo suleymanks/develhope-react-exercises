@@ -1,14 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useGitHubUser from '../hooks/useGitHubUser'; 
 
 const GitHubUser = ({ username }) => {
-  const { userData, error, loading, fetchUser } = useGitHubUser();
-
-  useEffect(() => {
-    if (username) {
-      fetchUser(username);
-    }
-  }, [username, fetchUser]);
+  const { userData, error, loading } = useGitHubUser(username);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -21,9 +15,15 @@ const GitHubUser = ({ username }) => {
   return (
     <div>
       <h2>User Details</h2>
-      <img src={userData.avatar_url} alt={`${username}'s avatar`} />
-      <p>Name: {userData.name}</p>
-      <p>Login: {userData.login}</p>
+      {userData ? (
+        <>
+          <img src={userData.avatar_url} alt={`${username}'s avatar`} />
+          <p>Name: {userData.name}</p>
+          <p>Login: {userData.login}</p>
+        </>
+      ) : (
+        <p>No user data available</p>
+      )}
     </div>
   );
 };

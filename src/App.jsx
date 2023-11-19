@@ -1,13 +1,13 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GitHubUser from './components/GitHubUser';
+import Location from './components/Location';
 
 
 function App() {
 
   return (
     <div>
-      <GitHubUser/>
+      <Location/>
     </div>
   );
 }
