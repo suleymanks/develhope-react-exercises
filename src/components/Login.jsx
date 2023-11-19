@@ -1,52 +1,39 @@
-import { useState } from "react";
+import React from 'react';
+import useForm from '../hooks/useForm'; 
 
-export default function Login(props) {
-    const [formData, setFormData] = useState({
-        username:"",
-        password:"",
-        checkbox:false,
-    })
+const LoginForm = () => {
+  const { formData, handleChange } = useForm();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData.username, formData.password, formData.checkbox)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Submitted:', formData);
+  };
 
-    function onReset() {
-        setFormData({
-            username:"",
-            password:"",
-            checkbox:false
-        })
-      }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
-    const styleButton = {
-        backgroundColor: formData.password.length < 8 ? "red" : "green"
-    }
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <h2>LOGIN COMPONENT</h2>
-            <label>Username: </label>
-            <input 
-                type="text" 
-                value={formData.username} 
-                onChange={(e) => setFormData({...formData, username:e.target.value})}
-                name="username" />
-            <label >Password: </label>
-            <input 
-                type="text" 
-                value={formData.password} 
-                onChange={(e) => setFormData({...formData, password:e.target.value})}
-                name="password" />
-            Remember me ?
-            <input 
-                type="checkbox" 
-                checked={formData.checkbox} 
-                onChange={(e) => setFormData({...formData, checkbox: e.target.checked})}
-                name="checkbox" />
-            <button style={styleButton} disabled={!formData.username || !formData.password} onClick={props.onLogin}>Login</button>
-            <button onClick={onReset}>Reset</button>
-        </form>
-    )
-}
+export default LoginForm;
