@@ -28,6 +28,10 @@ const Users = () => {
       <Link to="list">User List</Link>
 
       <Routes>
+        <Route
+          index // This is the index route for users/list
+          element={<p>Add a user and select it</p>}
+        />
         <Route path="list" element={<GitHubUsers />} />
         <Route path=":username" element={<GitHubUser />} />
       </Routes>
