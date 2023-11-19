@@ -1,13 +1,17 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Location from './components/Location';
+import useCounter from './hooks/useCounter';
 
 
 function App() {
+  const {count, reset, increment, decrement} = useCounter();
 
   return (
     <div>
-      <Location/>
+      <p>Counter: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }
