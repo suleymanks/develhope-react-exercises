@@ -1,8 +1,14 @@
-import React from 'react';
-import useGithubUser from '../hooks/useGitHubUser';
+import React, { useEffect } from 'react';
+import useGitHubUser from '../hooks/useGitHubUser'; 
 
-const GithubUser = ({ username }) => {
-  const { userData, error, loading, fetchUser } = useGithubUser(username);
+const GitHubUser = ({ username }) => {
+  const { userData, error, loading, fetchUser } = useGitHubUser();
+
+  useEffect(() => {
+    if (username) {
+      fetchUser(username);
+    }
+  }, [username, fetchUser]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -22,4 +28,4 @@ const GithubUser = ({ username }) => {
   );
 };
 
-export default GithubUser;
+export default GitHubUser;
