@@ -1,13 +1,13 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GitHubUser from './components/GitHubUser';
+import GitHubUsers from './components/GitHubUsers';
 
 
 function App() {
 
   return (
     <div>
-      <GitHubUser username={"suleymanks"}/>
+      <GitHubUsers/>
     </div>
   );
 }
