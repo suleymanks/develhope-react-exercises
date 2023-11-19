@@ -3,26 +3,36 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Welcome from './components/Welcome';
 import Counter from './components/Counter';
-import GitHubUser from './components/GitHubUser';
 import Notfound from './components/Notfound';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import GitHubUser from './components/GitHubUser';
+import GitHubUsers from './components/GitHubUsers'
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link style={{color:"white"}} to="/">Welcome & </Link>
-        <Link style={{color:"white"}} to="/counter"> Counter & </Link>
-        <Link style={{color:"white"}} to="/users/suleymanks"> GitHub</Link>
-      </nav>
+      <Link to={"users"}>Go userlist</Link>
+      <Link to={"/"}>Go homepage</Link>
       <Routes>
-        <Route path="/" element={<Welcome name="Suleyman" />} />
-        <Route path="/counter" element={<Counter initial={3} incrementAmount={3} decrementAmount={5} />} />
-        <Route path="/users/:username" element={<GitHubUser username="suleymanks" />} />
-        <Route path='*' element={<Notfound/> } />
+        <Route path="/" element={<Welcome name="YourName" />} />
+        <Route path="/users/*" element={<Users />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
+
+const Users = () => {
+  return (
+    <>
+      <h2>GitHub Users</h2>
+      <Link to="list">User List</Link>
+
+      <Routes>
+        <Route path="list" element={<GitHubUsers />} />
+        <Route path=":username" element={<GitHubUser />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
