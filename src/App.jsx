@@ -1,15 +1,14 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login'
+import GitHubUser from './components/GitHubUser';
 
 
 function App() {
 
   return (
     <div>
-      <h2>Custom Hook -useForm-</h2>
-
-      <Login/>
+      <GitHubUser/>
     </div>
   );
 }
