@@ -1,17 +1,20 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import useCounter from './hooks/useCounter';
-
+import FilteredList from './components/FilteredList';
 
 function App() {
-  const {count, reset, increment, decrement} = useCounter();
+  const dataList = [
+    { id: 1, name: 'Suleyman', age: 25 },
+    { id: 2, name: 'Jale', age: 18 },
+    { id: 3, name: 'Burak', age: 30 },
+    { id: 4, name: 'Kazim', age: 17 },
+    
+  ];
 
   return (
     <div>
-      <p>Counter: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
+      <h1>FilteredList Example</h1>
+      <FilteredList list={dataList} />
     </div>
   );
 }
